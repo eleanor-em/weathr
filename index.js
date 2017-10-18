@@ -99,7 +99,7 @@ app.get("/api/random", (req, res) => {
         recordRequest();
         // Get data!
         let city = getRandomCity();
-        const url = "http://api.openweathermap.org/data/2.5/forecast?id=" + city.id + "&APPID=" + apiKey.key;
+        const url = `http://api.openweathermap.org/data/2.5/forecast?id=${city.id}&APPID=${apiKey.key}`;
         // Get the actual data!
         axios.get(url)
                 .then(response => {
@@ -116,6 +116,10 @@ app.get("/api/random", (req, res) => {
     }
 });
 
-app.listen(8080, () => {
-    console.log("Listening on port 8080.");
-});
+function start(port) {
+    app.listen(port, () => {
+        console.log(`Listening on port ${port}.`);
+    });
+}
+
+start(8080);

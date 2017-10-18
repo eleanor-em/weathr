@@ -6,16 +6,16 @@
             function generateCityData(city) {
                 document.getElementById("city-name").innerText = city.city_name;
                 document.getElementById("country-name").innerText = city.country_name;
-                let url = "https://lipis.github.io/flag-icon-css/flags/4x3/" + city.country_code.toLowerCase() + ".svg";
+                let url = `https://lipis.github.io/flag-icon-css/flags/4x3/${city.country_code.toLowerCase()}.svg`;
                 console.log(url);
                 document.getElementById("flag").src = url;
                 document.getElementById("desc").innerText = city.desc;
-                document.getElementById("temp-max").innerHTML = city.temp.max + "&deg;";
-                document.getElementById("temp-min").innerHTML = city.temp.min + "&deg;";;
+                document.getElementById("temp-max").innerHTML = `${city.temp.max}&deg;`;
+                document.getElementById("temp-min").innerHTML = `${city.temp.min}&deg;`;
                 document.getElementById("rainfall").innerText = city.rainfall;
                 document.getElementById("humidity").innerText = city.humidity;
 
-                let icon = "images/";
+                let icon = "/images/";
                 switch (city.type) {
                     case "Rain":
                         icon += "rain.ico";
@@ -45,7 +45,7 @@
             <table class="data-container">
                 <tr>
                     <td class="data">
-                        <img class="display-image" src="images/rain.ico"><br>
+                        <img class="display-image" src="/images/rain.ico"><br>
                         <span id="desc">lightly raining</span>
                     </td>
                     <td class="data">
@@ -72,10 +72,10 @@
             </table>
         </div>
         <div class="button-container">
-            <a href="#"><img class="button" src="images/no.png" onclick="newData()"></a>
-            <a href="#"><img class="button" src="images/yes.png" onclick="newData()"></a>
+            <a href="#"><img class="button" src="/images/no.png" onclick="newData()"></a>
+            <a href="#"><img class="button" src="/images/yes.png" onclick="newData()"></a>
         </div>
-        <script src="sample.json"></script>
+        <script src="/sample.json"></script>
         <script>
             function newData() {
                 fetch('./api/random')
