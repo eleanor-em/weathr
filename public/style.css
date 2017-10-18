@@ -13,6 +13,11 @@ h4 {
     margin-top: 0;
     margin-bottom: 0;
 }
+h5 {
+    font-size: 4vh;
+    margin-top: 0;
+    margin-bottom: 0;
+}
 td {
     padding: 0;
 }
@@ -44,6 +49,7 @@ table.data-container {
     table-layout: fixed;
     transform: translateX(-13vw) translateY(-23vh) scale(0.7, 0.7);
     width: 70vw;
+    padding-right: 5vw;
     padding-bottom: 10vh;
     padding-top: 10vh;
     margin-top: 10vh;

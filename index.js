@@ -10,15 +10,12 @@ const MAX_REQS  = 60;
 const cities    = require("./city.list.json");
 const apiKey    = require("./owm.key.json");
 
-console.log(new Set(cities.map(c => c.country)).size);
-
 // Make sure we don't overrun our requests
 let reqsInLastMinute = 0
 function recordRequest() {
     ++reqsInLastMinute;
     // Set timeout for one minute
     setTimeout(() => {
-        console.log(reqsInLastMinute);
         --reqsInLastMinute;
     }, 60000);
 }
