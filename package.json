@@ -10,7 +10,8 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "axios": "^0.16.2",
-    "ejs": "~2.5.7",
+    "countrynames": "^0.1.1",
+    "dateformat": "^3.0.2",
     "express": "^4.16.2"
   }
 }
