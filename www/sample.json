@@ -1,0 +1,61 @@
+[{
+    "temp": {
+        "min": 14,
+        "max": 19
+    },
+    "type": "Rain",
+    "desc": "light rain",
+    "humidity": 88,
+    "rainfall": 1.3,
+    "city_name": "Villers-sur-Mer",
+    "country_name": "France",
+    "country_code": "FR"
+}, {
+    "temp": {
+        "min": 20,
+        "max": 21
+    },
+    "type": "Clear",
+    "desc": "clear sky",
+    "humidity": 56,
+    "rainfall": 0.1,
+    "city_name": "Yarra Ranges",
+    "country_name": "Australia",
+    "country_code": "AU"
+}, {
+    "temp": {
+        "min": 22,
+        "max": 28
+    },
+    "type": "Clouds",
+    "desc": "scattered clouds",
+    "humidity": 69,
+    "rainfall": 0,
+    "city_name": "Gariaband",
+    "country_name": "India",
+    "country_code": "IN"
+}, {
+    "temp": {
+        "min": 13,
+        "max": 24
+    },
+    "type": "Rain",
+    "desc": "moderate rain",
+    "humidity": 92,
+    "rainfall": 18.9,
+    "city_name": "Pinet",
+    "country_name": "Spain",
+    "country_code": "ES"
+}, {
+    "temp": {
+        "min": 16,
+        "max": 21
+    },
+    "type": "Clouds",
+    "desc": "few clouds",
+    "humidity": 77,
+    "rainfall": 1.5,
+    "city_name": "Loue",
+    "country_name": "France",
+    "country_code": "FR"
+}]

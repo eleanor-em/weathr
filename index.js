@@ -9,7 +9,8 @@ const cnames    = require("countrynames");
 const MAX_REQS  = 60;
 const cities    = require("./city.list.json");
 const apiKey    = require("./owm.key.json");
-const RESPONSE  = require("./response.json");
+
+console.log(new Set(cities.map(c => c.country)).size);
 
 // Make sure we don't overrun our requests
 let reqsInLastMinute = 0
@@ -48,6 +49,8 @@ function processResponse(response) {
         }
         return acc + val.rain["3h"];
     }, 0);
+    // One sig fig
+    rainfall = Math.round(rainfall * 10) / 10;
 
     // Get the number of occurrences of each type
     let counts = {}
@@ -86,7 +89,8 @@ function processResponse(response) {
         humidity: humidity,
         rainfall: rainfall,
         city_name: response.city.name,
-        country_name: countryName
+        country_name: countryName,
+        country_code: response.city.country
     };
 }
 
@@ -107,7 +111,6 @@ app.get("/api/random", (req, res) => {
                     // Bad gateway: Weather server failed
                     res.status(502).json({ error: err });
                 });
-        //res.json(processResponse(RESPONSE));
     } else {
         res.status(503)
            .json({ error: "Server busy -- too many requests" });
