@@ -25,7 +25,7 @@ div.city-container {
     border: rgb(231, 228, 228) solid;
     border-radius: 2vw;
     height: 70vh;
-    width: 40vw;
+    width: 90vw;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -33,7 +33,7 @@ div.city-container {
 div.button-container {
     border: rgb(231, 228, 228) solid;
     border-radius: 2vw;
-    width: 40vw;
+    width: 90vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
@@ -47,8 +47,8 @@ div.name {
 }
 table.data-container {
     table-layout: fixed;
-    transform: translateX(-13vw) translateY(-23vh) scale(0.7, 0.7);
-    width: 70vw;
+    transform: translateY(-20vh);
+    width: 100%;
     padding-right: 5vw;
     padding-bottom: 10vh;
     padding-top: 10vh;
@@ -65,9 +65,6 @@ td.subcontainer {
     top: -3vw;
     height: 20vh;
     z-index: -1;
-}
-img#flag {
-    transform: translateX(-2vw) translateY(-13.5vh);
 }
 img.display-image {
     object-fit: cover;
@@ -88,4 +85,24 @@ img.button {
     margin-right: 3vw;
     border-radius: 5vw;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+img#flag {
+    width: 100%;
+    transforM: translateY(-20vh);
+}
+@media only screen and (min-width: 768px){
+    div.city-container {
+        width: 40vw;
+    }
+    div.button-container {
+        width: 40vw;
+    }
+    img#flag {
+        width: auto;
+        transform: translateX(-2vw);
+    }
+    table.data-container {
+        transform: translateX(-13vw) translateY(-23vh) scale(0.7, 0.7);
+        width: 70vw;
+    }
 }

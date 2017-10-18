@@ -2,12 +2,33 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Weathr: The world's first weather dating app</title>
         <script>
+            function newData() {
+                let container = document.getElementsByClassName("city-container")[0];
+                container.style.visibility = "hidden";
+                fetch('./api/random')
+                .then(res => {
+                    if (res.status >= 200 && res.status < 300){
+                        return Promise.resolve(res);
+                    }
+                    if (res.status == 503) {
+                        container.innerText = "Service busy, try again later!";
+                    }
+                    return Promise.reject(new Error(res.statusText));
+                }).then(res => res.json()).then(data => {
+                    container.style.visibility = "visible";
+                    generateCityData(data);
+                }).catch(err => {
+                    console.log(err);
+                }).then(() => {
+                    container.style.visibility = "visible";
+                });
+            }
             function generateCityData(city) {
                 document.getElementById("city-name").innerText = city.city_name;
                 document.getElementById("country-name").innerText = city.country_name;
                 let url = `https://lipis.github.io/flag-icon-css/flags/4x3/${city.country_code.toLowerCase()}.svg`;
-                console.log(url);
                 document.getElementById("flag").src = url;
                 document.getElementById("desc").innerText = city.desc;
                 document.getElementById("temp-max").innerHTML = `${city.temp.max}&deg;`;
@@ -56,11 +77,11 @@
                     <td class="data">
                         <table class="rain-container">
                             <tr>
-                                <td class="subcontainer"><img class="data-image" src="images/rain_amount.png"></td>
+                                <td class="subcontainer"><img class="data-image" src="/images/rain_amount.png"></td>
                                 <td class="subcontainer"><span id="rainfall">1.3</span> mL</td>
                             </tr>
                             <tr>
-                                <td class="subcontainer"><img class="data-image" src="images/humidity_amount.png"</td>
+                                <td class="subcontainer"><img class="data-image" src="/images/humidity_amount.png"</td>
                                 <td class="subcontainer" id="humidity">88%</td>
                             </tr>
                         </table>
@@ -75,22 +96,5 @@
             <a href="#"><img class="button" src="/images/no.png" onclick="newData()"></a>
             <a href="#"><img class="button" src="/images/yes.png" onclick="newData()"></a>
         </div>
-        <script src="/sample.json"></script>
-        <script>
-            function newData() {
-                fetch('./api/random')
-                .then(res => {
-                    if (res.status >= 200 && res.status < 300){
-                        return Promise.resolve(res);
-                    }
-                    return Promise.reject(new Error(res.statusText));
-                }).then(res => res.json()).then(data => {
-                    console.log(data);
-                    generateCityData(data);
-                }).catch(err => {
-                    alert(err);
-                });
-            }
-        </script>
     </body>
 </html>
