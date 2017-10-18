@@ -1,4 +1,4 @@
-[{
+SAMPLE = [{
     "temp": {
         "min": 14,
         "max": 19

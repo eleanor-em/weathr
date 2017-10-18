@@ -94,6 +94,8 @@ function processResponse(response) {
     };
 }
 
+app.use(express.static("public"));
+
 app.get("/api/random", (req, res) => {
     // Check we aren't exceeding our limit
     if (reqsInLastMinute < MAX_REQS) {
