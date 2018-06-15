@@ -7,7 +7,7 @@
             function newData() {
                 let container = document.getElementsByClassName("city-container")[0];
                 container.style.visibility = "hidden";
-                fetch('./api/random')
+                fetch('/weathr/api/random')
                 .then(res => {
                     if (res.status >= 200 && res.status < 300){
                         return Promise.resolve(res);
@@ -34,9 +34,9 @@
                 document.getElementById("temp-max").innerHTML = `${city.temp.max}&deg;`;
                 document.getElementById("temp-min").innerHTML = `${city.temp.min}&deg;`;
                 document.getElementById("rainfall").innerText = city.rainfall;
-                document.getElementById("humidity").innerText = city.humidity;
+                document.getElementById("humidity").innerText = `${city.humidity}%`;
 
-                let icon = "/images/";
+                let icon = "/weathr/images/";
                 switch (city.type) {
                     case "Rain":
                         icon += "rain.ico";
@@ -66,7 +66,7 @@
             <table class="data-container">
                 <tr>
                     <td class="data">
-                        <img class="display-image" src="/images/rain.ico"><br>
+                        <img class="display-image" src="/weathr/images/rain.ico"><br>
                         <span id="desc">lightly raining</span>
                     </td>
                     <td class="data">
@@ -77,11 +77,11 @@
                     <td class="data">
                         <table class="rain-container">
                             <tr>
-                                <td class="subcontainer"><img class="data-image" src="/images/rain_amount.png"></td>
+                                <td class="subcontainer"><img class="data-image" src="/weathr/images/rain_amount.png"></td>
                                 <td class="subcontainer"><span id="rainfall">1.3</span> mL</td>
                             </tr>
                             <tr>
-                                <td class="subcontainer"><img class="data-image" src="/images/humidity_amount.png"</td>
+                                <td class="subcontainer"><img class="data-image" src="/weathr/images/humidity_amount.png"</td>
                                 <td class="subcontainer" id="humidity">88%</td>
                             </tr>
                         </table>
@@ -93,8 +93,9 @@
             </table>
         </div>
         <div class="button-container">
-            <a href="#"><img class="button" src="/images/no.png" onclick="newData()"></a>
-            <a href="#"><img class="button" src="/images/yes.png" onclick="newData()"></a>
+            <a href="#"><img class="button" src="/weathr/images/no.png" onclick="newData()"></a>
+            <a href="#"><img class="button" src="/weathr/images/yes.png" onclick="newData()"></a>
         </div>
+        <script>newData();</script>
     </body>
 </html>
